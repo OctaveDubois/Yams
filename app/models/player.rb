@@ -1,6 +1,9 @@
 class Player < ApplicationRecord
   belongs_to :game
   after_initialize :init_scores
+  before_update :score_total
+
+
 
   private
 
@@ -20,4 +23,10 @@ class Player < ApplicationRecord
     self.yams ||= 0
     self.score ||= 0
   end
+
+  def score_total
+    self.score = self.one + self.two + self.three + self.four + self.five + self.six + self.triple + self.quadriple + self.full + self.small + self.long + self.chance + self.yams
+  end
+
+
 end

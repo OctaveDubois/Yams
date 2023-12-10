@@ -9,19 +9,28 @@
       <h3><%= player_form.object.score %></h3>
 
       <%= player_form.label :one, "Score pour 1" %>
-      <%= player_form.text_field :one %>
+  <%= player_form.select :one, ["-", 0, 1, 2, 3, 4, 5] %>
+  <p><%= player_form.object.one %></p>
 
       <%= player_form.label :two, "Score pour 2" %>
-      <%= player_form.text_field :two %>
+   <%= player_form.select :two, ["-", 0, 2, 4, 6, 8, 10] %>
+  <p><%= player_form.object.two %></p>
+
+  <%= player_form.label :three, "Score pour 3" %>
+   <%= player_form.select :three, ["-", 0, 3, 6, 9, 12, 15] %>
+  <p><%= player_form.object.three %></p>
 
       <%= player_form.label :four, "Score pour 4" %>
-      <%= player_form.text_field :four %>
+      <%= player_form.select :four, ["-", 0, 4, 8, 12, 16, 20] %>
+  <p><%= player_form.object.four %></p>
 
       <%= player_form.label :five, "Score pour 5" %>
-      <%= player_form.text_field :five %>
+      <%= player_form.select :five, ["-", 0, 5, 10, 15, 20, 25] %>
+  <p><%= player_form.object.four %></p>
 
       <%= player_form.label :six, "Score pour 6" %>
-      <%= player_form.text_field :six %>
+      <%= player_form.select :six, ["-", 0, 6, 12, 18, 24, 30] %>
+      <p><%= player_form.object.six %></p>
 
       <%= player_form.label :triple, "Score pour brelan" %>
       <%= player_form.text_field :triple %>
@@ -30,13 +39,13 @@
       <%= player_form.text_field :quadriple %>
 
       <%= player_form.label :full, "Score pour full" %>
-      <%= player_form.text_field :full %>
+      <%= player_form.select :full, ["-", 0, 25] %>
 
       <%= player_form.label :small, "Score pour petite suite" %>
-      <%= player_form.text_field :small %>
+      <%= player_form.select :small, ["-", 0, 30] %>
 
       <%= player_form.label :long, "Score pour grande suite" %>
-      <%= player_form.text_field :long %>
+      <%= player_form.select :long, ["-", 0, 40] %>
 
       <%= player_form.label :chance, "Score pour chance" %>
       <%= player_form.text_field :chance %>
