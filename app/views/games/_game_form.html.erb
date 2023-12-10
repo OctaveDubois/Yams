@@ -1,0 +1,57 @@
+<!-- app/views/games/_form.html.erb -->
+<%= form_with(model: @game, local: true) do |form| %>
+
+
+  <%= form.fields_for :players do |player_form| %>
+    <div class="player-fields">
+      <h3><%= player_form.object.name %></h3>
+
+      <h3><%= player_form.object.score %></h3>
+
+      <%= player_form.label :one, "Score pour 1" %>
+      <%= player_form.text_field :one %>
+
+      <%= player_form.label :two, "Score pour 2" %>
+      <%= player_form.text_field :two %>
+
+      <%= player_form.label :four, "Score pour 4" %>
+      <%= player_form.text_field :four %>
+
+      <%= player_form.label :five, "Score pour 5" %>
+      <%= player_form.text_field :five %>
+
+      <%= player_form.label :six, "Score pour 6" %>
+      <%= player_form.text_field :six %>
+
+      <%= player_form.label :triple, "Score pour brelan" %>
+      <%= player_form.text_field :triple %>
+
+      <%= player_form.label :quadriple, "Score pour carré" %>
+      <%= player_form.text_field :quadriple %>
+
+      <%= player_form.label :full, "Score pour full" %>
+      <%= player_form.text_field :full %>
+
+      <%= player_form.label :small, "Score pour petite suite" %>
+      <%= player_form.text_field :small %>
+
+      <%= player_form.label :long, "Score pour grande suite" %>
+      <%= player_form.text_field :long %>
+
+      <%= player_form.label :chance, "Score pour chance" %>
+      <%= player_form.text_field :chance %>
+
+      <%= player_form.label :yams, "Score pour yams" %>
+      <%= player_form.text_field :yams %>
+
+      <%= player_form.check_box :_destroy %>
+      <%= player_form.label :_destroy, 'Supprimer' %>
+    </div>
+  <% end %>
+
+  <div id="add-player-link">
+    <%= link_to 'Ajouter un joueur', '#', id: 'add-player' %>
+  </div>
+
+  <%= form.submit "Enregistrer" %>
+<% end %>
