@@ -1,1 +1,15 @@
-<h1>Coucou</h1>
+<h1>Nouvelle partie</h1>
+
+
+<%= form_with(model: @game, local: true) do |form| %>
+
+  <%= form.fields_for :players do |player_form| %>
+    <%= render 'player_fields', f: player_form %>
+  <% end %>
+
+  <div id="add-player-link">
+    <%= link_to 'Ajouter un joueur', '#', id: 'add-player' %>
+  </div>
+
+  <%= form.submit "Créer la partie" %>
+<% end %>
