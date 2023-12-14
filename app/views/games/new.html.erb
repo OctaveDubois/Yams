@@ -1,15 +1,20 @@
 <h1>Nouvelle partie</h1>
 
+<%= form_with model: @game, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
+  <template data-nested-form-target="template">
+    <%= f.fields_for :players, Player.new, child_index: 'NEW_RECORD' do |player_form| %>
+      <%= render "player_fields", f: player_form %>
+    <% end %>
+  </template>
 
-<%= form_with(model: @game, local: true) do |form| %>
-
-  <%= form.fields_for :players do |player_form| %>
-    <%= render 'player_fields', f: player_form %>
+  <%= f.fields_for :players do |player_form| %>
+    <%= render "player_fields", f: player_form %>
   <% end %>
 
-  <div id="add-player-link">
-    <%= link_to 'Ajouter un joueur', '#', id: 'add-player' %>
-  </div>
+  <!-- Inserted elements will be injected before that target. -->
+  <div data-nested-form-target="target"></div>
 
-  <%= form.submit "Créer la partie" %>
+  <button type="button" data-action="nested-form#add">Add players</button>
+
+  <%= f.submit 'Save players' %>
 <% end %>

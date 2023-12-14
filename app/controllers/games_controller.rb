@@ -35,6 +35,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:name, players_attributes: [:id, :name, :one, :two, :three, :four, :five, :six, :triple, :quadriple, :full, :small, :long, :chance, :yams, :_destroy])
+    params.require(:game).permit(:name, players_attributes: [:id, :_destroy, :name, :one, :two, :three, :four, :five, :six, :triple, :quadriple, :full, :small, :long, :chance, :yams, :_destroy])
   end
 end
