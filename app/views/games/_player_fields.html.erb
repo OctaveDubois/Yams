@@ -1,8 +1,11 @@
 
-<div class="player-fields">
+
+
+<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
   <%= f.label :name, "Nom du joueur" %>
   <%= f.text_field :name %>
 
-  <%= f.check_box :_destroy %>
-  <%= f.label :_destroy, 'Supprimer' %>
+  <button type="button" data-action="nested-form#remove">Remove players</button>
+
+  <%= f.hidden_field :_destroy %>
 </div>
