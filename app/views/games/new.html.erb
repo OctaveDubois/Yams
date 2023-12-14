@@ -1,20 +1,26 @@
-<h1>Nouvelle partie</h1>
 
-<%= form_with model: @game, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
-  <template data-nested-form-target="template">
-    <%= f.fields_for :players, Player.new, child_index: 'NEW_RECORD' do |player_form| %>
+<div class="container">
+
+<%= simple_form_for @game, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
+  <h1 class="mb-3 mt-3">Nouvelle partie</h1>
+
+  <div data-nested-form-target="template">
+    <%= f.simple_fields_for :players, Player.new, child_index: 'NEW_RECORD' do |player_form| %>
       <%= render "player_fields", f: player_form %>
     <% end %>
-  </template>
+  </div>
 
-  <%= f.fields_for :players do |player_form| %>
+  <%= f.simple_fields_for :players do |player_form| %>
     <%= render "player_fields", f: player_form %>
   <% end %>
 
-  <!-- Inserted elements will be injected before that target. -->
+  <!-- Les éléments insérés seront injectés avant cette cible. -->
   <div data-nested-form-target="target"></div>
 
-  <button type="button" data-action="nested-form#add">Add players</button>
+  <button type="button" data-action="nested-form#add">Ajouter des joueurs</button>
 
-  <%= f.submit 'Save players' %>
+  <%= f.submit 'Commencer la partie' %>
 <% end %>
+
+
+</div>
