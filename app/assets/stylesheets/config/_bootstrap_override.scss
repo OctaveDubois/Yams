@@ -1,0 +1,102 @@
+$radius: 8px;
+
+i {
+  font-size: 20px;
+}
+
+#boostrap-override {
+
+  .avatar {
+    border-radius: 45px;
+    border: 2px solid $color-secondary;
+    height: 54px;
+    width: 54px;
+    object-fit: cover;
+  }
+
+  .padding-b {
+    padding-bottom: 16px ;
+  }
+
+  .forminput {
+    border-radius: $radius;
+    border: 1px solid $color-grey;
+    background: $color-white;
+    display: flex;
+    padding: 12px;
+    width: 100%;
+  }
+
+  .container {
+    padding: 24px;
+  }
+
+  .wrapper {
+    padding: 16px;
+  }
+
+  h1 {
+    font-family: $Epilogue-font;
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-secondary;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.2;
+  }
+  h2 {
+    font-family: $Epilogue-font;
+    font-size: 20px;
+    font-weight: 700;
+    color: $color-secondary;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.2;
+  }
+  h3 {
+    font-family: $Epilogue-font;
+    font-size: 16px;
+    font-weight: 700;
+    color: $color-secondary;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.2;
+  }
+  p {
+    font-family: $Outfit-font;
+    font-size: 16px;
+    font-weight: 400;
+    color: $color-secondary;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.2;
+  }
+  a {
+    color: $color-secondary;
+    text-decoration: none;
+  }
+
+  .btn {
+    border-radius: $radius;
+    padding: 12px 16px;
+    font-family: $Epilogue-font;
+    text-align: center;
+    color: $color-secondary;
+    display: inline-block;
+    width: 100%;
+
+    &-primary {
+
+      background: $color-primary;
+      border: none;
+    }
+
+    &-secondary {
+      border: 1px solid $color-secondary;
+    }
+
+    &-disabled {
+      background: $color-grey;
+    }
+  }
+}

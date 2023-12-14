@@ -1,5 +1,8 @@
 // Import your components CSS files here.
+@import "config/mixins";
+// Import your components CSS files here.
 @import "alert";
-@import "avatar";
 @import "form_legend_clear";
-@import "navbar";
+@import "headers";
+@import "block_grey";
+@import "cardform";

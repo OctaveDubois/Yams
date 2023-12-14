@@ -1,0 +1,243 @@
+@import "config/_bootstrap_override";
+
+
+.font-size-23 {
+  font-size: 23px!important;
+}
+
+
+.color-white {
+  color: $color-white!important;
+}
+
+.background-grey {
+  background: $color-grey;
+}
+.padding-0 {
+  padding-left: 0px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+// ------------------- FLEX -----------------------
+
+.flex {
+  display: flex;
+}
+
+.aicenter {
+  align-items: center;
+}
+.jcsb {
+  justify-content: space-between;
+}
+.gap {
+  gap: 8px;
+}
+
+.gap2 {
+  gap: 16px;
+}
+// -----------------------------------
+
+
+
+// button card sports
+.exo-cache {
+  position: fixed;
+  background-color: white;
+  bottom: 100px;
+  height: 70px;
+  width: 100%;
+}
+
+
+.tag {
+  background-color: $color-tertiary ;
+  border-radius: $radius * 4;
+  padding: 8px 12px;
+  width: fit-content;
+}
+
+.tag-other {
+  background-color: $color-pink_pastel ;
+  border-radius: $radius * 4;
+  padding: 8px 12px;
+  width: fit-content;
+}
+
+.formbutton {
+  width: 100%;
+  padding: 16px 24px;
+  margin-bottom: 8px;
+
+  .sportcard {
+    // width: 390px;
+    padding: 10px 0px;
+  }
+  justify-content: space-between;
+  border-radius: $radius * 1.5;
+  border: 1px solid $color-grey;
+  background: $color-grey;
+  display: flex;
+  align-items: center;
+  font-family: $Outfit-font;
+}
+
+.logo {
+  width: 150px;
+}
+
+// .hero {
+//   background-color: $color-primary;
+// }
+
+.indexcard {
+  justify-content: space-between;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  background: $color-secondary;
+  border-radius: $radius;
+  text-decoration: none;
+  i {
+    height: 40px;
+    padding: 8px;
+    background: $color-primary;
+    border-radius: $radius * 4;
+    display: flex;
+    align-items: center;
+  }
+  h3 {
+    font-weight: 500!important;
+  }
+}
+
+.link-decoration-none {
+  text-decoration: none;
+}
+
+.btn-background-white {
+  background-color: white!important;
+}
+
+.training-card {
+  background-color: $color-grey;
+  margin-bottom: 16px;
+  border-radius: $radius ;
+}
+
+.card_exercice {
+  margin-top: 15px;
+  padding: 15px 24px;
+  justify-content: space-between;
+  border-radius: 12px;
+  background: var(--grey, #F5F5F6);
+  display: flex;
+  align-items: center;
+}
+
+.card_exercice_select {
+  h3 {
+    color: white!important;
+  }
+  .fa-regular {
+    color: white!important;
+  }
+  width: 310px;
+  height: 54px;
+  margin-top: 20px;
+  padding: 15px 24px;
+  justify-content: space-between;
+  border-radius: 12px;
+  background: $color-secondary;
+  display: flex;
+  align-items: center;
+}
+
+
+.btn_position_bas {
+    position: fixed;
+    bottom: 100px;
+    width: 78%!important;
+}
+
+// tab entrainement - historique
+.nav-pills, .nav-link, .nav-pills .show > .nav-link {
+  width: 100%;
+  background-color: $color-grey;
+  border-radius: $radius;
+  color: $color-secondary;
+  font-family: $Outfit-font;
+
+  &:hover {
+    color: $color-secondary;
+  }
+
+  .nav-link.active {
+    background-color: $color-secondary;
+  }
+
+}
+
+.nav-item {
+  width: 50%;
+  border-radius: $radius;
+}
+
+.margin-top-0 {
+  margin-top: 0px;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  color: $color-grey-dark
+}
+
+.search {
+    border-radius: $radius;
+    text-align: center;
+    color: $color-secondary;
+    display: inline-block;
+      background: $color-primary;
+      border: none;
+    }
+
+.filter {
+  border-radius: $radius;
+  text-align: center;
+  color: $color-secondary;
+  display: inline-block;
+    background: $color-grey;
+    border: none;
+  }
+
+.padding-top-1 {
+  padding-top: 1px;
+}
+
+.pb-chart {
+  padding-bottom: 16px;
+}
+
+
+.padding-0-entete {
+  padding: 0px!important;
+}
+
+.padding-0-24 {
+  padding: 0px 0px;
+}
+
+.border-bottom-none {
+  border-bottom: none;
+}
