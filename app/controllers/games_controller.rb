@@ -2,8 +2,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    # Construit trois joueurs par défaut
-    2.times { @game.players.build }
+    @game.players.build
   end
 
   def create
@@ -37,4 +36,5 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(:name, players_attributes: [:id, :_destroy, :name, :one, :two, :three, :four, :five, :six, :triple, :quadriple, :full, :small, :long, :chance, :yams, :_destroy])
   end
+
 end
