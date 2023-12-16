@@ -1,66 +1,50 @@
 <!-- app/views/games/_form.html.erb -->
-<%= form_with(model: @game, local: true) do |form| %>
+<%= simple_form_for @game do |form| %>
 
+  <%= form.simple_fields_for :players do |player_form| %>
+    <div class="player-fields">
+      <h3><%= player_form.object.name %></h3>
+      <h3><%= player_form.object.score %></h3>
 
-<%= form.fields_for :players do |player_form| %>
-<div class="player-fields">
-  <h3><%= player_form.object.name %></h3>
+      <%= player_form.input :one, label: "Score pour 1", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.one %>
+      <p>Score: <%= player_form.object.one %></p>
 
-  <h3><%= player_form.object.score %></h3>
+      <%= player_form.input :two, label: "Score pour 2", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.two %>
+      <p>Score: <%= player_form.object.two %></p>
 
-  <%= player_form.label :one, "Score pour 1" %>
-  <%= player_form.select :one, ["-", 0, 1, 2, 3, 4, 5] %>
-  <p><%= player_form.object.one %></p>
+      <%= player_form.input :three, label: "Score pour 3", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.three %>
+      <p>Score: <%= player_form.object.three %></p>
 
-  <%= player_form.label :two, "Score pour 2" %>
-  <%= player_form.select :two, ["-", 0, 2, 4, 6, 8, 10] %>
-  <p><%= player_form.object.two %></p>
+      <%= player_form.input :four, label: "Score pour 4", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.four %>
+      <p>Score: <%= player_form.object.four %></p>
 
-  <%= player_form.label :three, "Score pour 3" %>
-  <%= player_form.select :three, ["-", 0, 3, 6, 9, 12, 15] %>
-  <p><%= player_form.object.three %></p>
+      <%= player_form.input :five, label: "Score pour 5", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.five %>
+      <p>Score: <%= player_form.object.five %></p>
 
-  <%= player_form.label :four, "Score pour 4" %>
-  <%= player_form.select :four, ["-", 0, 4, 8, 12, 16, 20] %>
-  <p><%= player_form.object.four %></p>
+      <%= player_form.input :six, label: "Score pour 6", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.six %>
+      <p>Score: <%= player_form.object.six %></p>
 
-  <%= player_form.label :five, "Score pour 5" %>
-  <%= player_form.select :five, ["-", 0, 5, 10, 15, 20, 25] %>
-  <p><%= player_form.object.five %></p>
+      <%= player_form.input :triple, label: "Score pour brelan", selected: player_form.object.triple %>
 
-  <%= player_form.label :six, "Score pour 6" %>
-  <%= player_form.select :six, ["-", 0, 6, 12, 18, 24, 30] %>
-  <p><%= player_form.object.six %></p>
+      <%= player_form.input :quadriple, label: "Score pour carré", selected: player_form.object.quadriple %>
 
-  <%= player_form.label :triple, "Score pour brelan" %>
-  <%= player_form.text_field :triple %>
+      <%= player_form.input :full, label: "Score pour full", collection: ["-", 0, 25], selected: player_form.object.full %>
 
-  <%= player_form.label :quadriple, "Score pour carré" %>
-  <%= player_form.text_field :quadriple %>
+      <%= player_form.input :small, label: "Score pour petite suite", collection: ["-", 0, 30], selected: player_form.object.small %>
 
-  <%= player_form.label :full, "Score pour full" %>
-  <%= player_form.select :full, ["-", 0, 25] %>
+      <%= player_form.input :long, label: "Score pour grande suite", collection: ["-", 0, 40], selected: player_form.object.long %>
 
-  <%= player_form.label :small, "Score pour petite suite" %>
-  <%= player_form.select :small, ["-", 0, 30] %>
+      <%= player_form.input :chance, label: "Score pour chance", selected: player_form.object.chance %>
 
-  <%= player_form.label :long, "Score pour grande suite" %>
-  <%= player_form.select :long, ["-", 0, 40] %>
+      <%= player_form.input :yams, label: "Score pour yams", selected: player_form.object.yams %>
 
-  <%= player_form.label :chance, "Score pour chance" %>
-  <%= player_form.text_field :chance %>
+      <%= player_form.input :_destroy, as: :boolean, label: 'Supprimer' %>
+    </div>
+  <% end %>
 
-  <%= player_form.label :yams, "Score pour yams" %>
-  <%= player_form.text_field :yams %>
+  <div id="add-player-link">
+    <%= link_to 'Ajouter un joueur', '#', id: 'add-player' %>
+  </div>
 
-  <%= player_form.check_box :_destroy %>
-  <%= player_form.label :_destroy, 'Supprimer' %>
-</div>
-<% end %>
-
-<div id="add-player-link">
-  <%= link_to 'Ajouter un joueur', '#', id: 'add-player' %>
-</div>
-
-<%= form.submit "Enregistrer" %>
+  <%= form.button :submit, "Enregistrer" %>
 <% end %>
