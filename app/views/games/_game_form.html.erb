@@ -8,10 +8,10 @@
 <%# ---------------------- 1 et brelan -------------------------------- %>
 <div class="row">
   <div class="col-md-2">
-    <%= player_form.input :one, label: "Score pour 1 : #{player_form.object.one }", collection: ["-", 0, 1, 2, 3, 4, 5] , selected: player_form.object.one %>
+    <%= player_form.input :one, label: "Score pour 1 : #{player_form.object.one }", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.one %>
   </div>
   <div class="col-md-2">
-<%= player_form.input :triple, label: "Score pour brelan", selected: player_form.object.triple %>
+    <%= player_form.input :triple, label: "Score pour brelan", selected: player_form.object.triple %>
   </div>
 </div>
 <%# ---------------------- 2 et carré -------------------------------- %>
@@ -61,7 +61,7 @@
 
 <div class="row">
 <div class="col-md-2">
-      <%= player_form.input :six, label: "Score pour 6 : #{player_form.object.one }", collection: ["-", 0, 6, 12, 18, 24, 30], selected: player_form.object.six %>
+      <%= player_form.input :six, label: "Score pour 6 : #{player_form.object.six }", collection: ["-", 0, 6, 12, 18, 24, 30], selected: player_form.object.six %>
 </div>
 <div class="col-md-2">
       <%= player_form.input :chance, label: "Score pour chance", selected: player_form.object.chance %>

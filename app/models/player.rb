@@ -9,7 +9,7 @@ class Player < ApplicationRecord
   private
 
   def init_scores
-    self.one = 0
+    self.one ||= 0
     self.two ||= 0
     self.three ||= 0
     self.four ||= 0
