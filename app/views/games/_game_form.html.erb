@@ -5,38 +5,83 @@
     <div class="player-fields">
       <h3><%= player_form.object.name %></h3>
       <h3><%= player_form.object.score %></h3>
+<%# ---------------------- 1 et brelan -------------------------------- %>
+<div class="row">
+  <div class="col-md-2">
+    <%= player_form.input :one, label: "Score pour 1 : #{player_form.object.one }", collection: ["-", 0, 1, 2, 3, 4, 5] , selected: player_form.object.one %>
+  </div>
+  <div class="col-md-2">
+<%= player_form.input :triple, label: "Score pour brelan", selected: player_form.object.triple %>
+  </div>
+</div>
+<%# ---------------------- 2 et carré -------------------------------- %>
+<div class="row">
+<div class="col-md-2">
+<%= player_form.input :two, label: "Score pour 2 : #{player_form.object.two }", collection: ["-", 0, 2, 4, 6, 8, 10], selected: player_form.object.two %>
+</div>
+<div class="col-md-2">
+<%= player_form.input :quadriple, label: "Score pour carré", selected: player_form.object.quadriple %>
+</div>
+</div>
+<%# ---------------------- 3 et full -------------------------------- %>
 
-      <%= player_form.input :one, label: "Score pour 1", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.one %>
-      <p>Score: <%= player_form.object.one %></p>
-
-      <%= player_form.input :two, label: "Score pour 2", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.two %>
-      <p>Score: <%= player_form.object.two %></p>
-
-      <%= player_form.input :three, label: "Score pour 3", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.three %>
-      <p>Score: <%= player_form.object.three %></p>
-
-      <%= player_form.input :four, label: "Score pour 4", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.four %>
-      <p>Score: <%= player_form.object.four %></p>
-
-      <%= player_form.input :five, label: "Score pour 5", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.five %>
-      <p>Score: <%= player_form.object.five %></p>
-
-      <%= player_form.input :six, label: "Score pour 6", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.six %>
-      <p>Score: <%= player_form.object.six %></p>
-
-      <%= player_form.input :triple, label: "Score pour brelan", selected: player_form.object.triple %>
-
-      <%= player_form.input :quadriple, label: "Score pour carré", selected: player_form.object.quadriple %>
-
+<div class="row">
+<div class="col-md-2">
+  <%= player_form.input :three, label: "Score pour 3 : #{player_form.object.three }", collection: ["-", 0, 3, 6, 9, 12, 15], selected: player_form.object.three %>
+</div>
+<div class="col-md-2">
       <%= player_form.input :full, label: "Score pour full", collection: ["-", 0, 25], selected: player_form.object.full %>
+</div>
+</div>
 
+<%# ---------------------- 4 et petite -------------------------------- %>
+<div class="row">
+<div class="col-md-2">
+  <%= player_form.input :four, label: "Score pour 4 : #{player_form.object.four }", collection: ["-", 0, 4, 8, 12, 16, 20], selected: player_form.object.four %>
+</div>
+<div class="col-md-2">
       <%= player_form.input :small, label: "Score pour petite suite", collection: ["-", 0, 30], selected: player_form.object.small %>
+</div>
+</div>
 
+<%# ---------------------- 5 et grande -------------------------------- %>
+
+<div class="row">
+<div class="col-md-2">
+      <%= player_form.input :five, label: "Score pour 5 : #{player_form.object.five }", collection: ["-", 0, 5, 10, 15, 20, 25], selected: player_form.object.five %>
+</div>
+<div class="col-md-2">
       <%= player_form.input :long, label: "Score pour grande suite", collection: ["-", 0, 40], selected: player_form.object.long %>
 
-      <%= player_form.input :chance, label: "Score pour chance", selected: player_form.object.chance %>
+</div>
+</div>
 
+
+<%# ---------------------- 6 et chance -------------------------------- %>
+
+<div class="row">
+<div class="col-md-2">
+      <%= player_form.input :six, label: "Score pour 6 : #{player_form.object.one }", collection: ["-", 0, 6, 12, 18, 24, 30], selected: player_form.object.six %>
+</div>
+<div class="col-md-2">
+      <%= player_form.input :chance, label: "Score pour chance", selected: player_form.object.chance %>
+</div>
+</div>
+
+<%# ---------------------- Bonus et yams -------------------------------- %>
+
+<div class="row">
+<div class="col-md-2">
+<p>Bonus</p>
+</div>
+<div class="col-md-2">
       <%= player_form.input :yams, label: "Score pour yams", selected: player_form.object.yams %>
+</div>
+</div>
+
+
+<%# ---------------------- Autres boutons -------------------------------- %>
+
 
       <%= player_form.input :_destroy, as: :boolean, label: 'Supprimer' %>
     </div>
