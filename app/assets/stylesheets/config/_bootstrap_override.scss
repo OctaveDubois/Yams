@@ -53,7 +53,7 @@ i {
     margin-bottom: 0;
     line-height: 1.2;
   }
-  h3 {
+  .h3 {
     font-family: $Epilogue-font;
     font-size: 16px;
     font-weight: 700;
@@ -61,7 +61,27 @@ i {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 1.2;
+background-color: red;
   }
+
+  .score {
+font-family: Outfit;
+font-size: 28px;
+font-style: normal;
+font-weight: 400;
+line-height: 18.4px;
+  }
+  
+.card {
+  display: flex;
+width: 73px;
+height: 46px;
+padding: 17.068px 27.929px;
+justify-content: center;
+align-items: center;
+gap: 3.103px;
+flex-shrink: 0;
+}
   p {
     font-family: $Outfit-font;
     font-size: 16px;
