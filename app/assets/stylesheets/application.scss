@@ -2,7 +2,6 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
-@import "config/bootstrap_override";
 
 // External libraries
 @import "bootstrap";
@@ -13,3 +12,15 @@
 @import "pages/index";
 @import "components/custom";
 @import "config/mixins";
+
+.score {
+  display: flex;
+width: 73px;
+height: 46px;
+padding: 17.068px 27.929px;
+justify-content: center;
+align-items: center;
+gap: 3.103px;
+flex-shrink: 0;
+color: red;
+}

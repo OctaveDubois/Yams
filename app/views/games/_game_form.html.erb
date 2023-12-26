@@ -7,6 +7,7 @@
       <h3><%= player_form.object.score %></h3>
 <%# ---------------------- 1 et brelan -------------------------------- %>
 <div class="row">
+<div><p  class="score">1</p></div>
   <div class="col-md-2">
     <%= player_form.input :one, label: "Score pour 1 : #{player_form.object.one }", collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.one %>
   </div>
