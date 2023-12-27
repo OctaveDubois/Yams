@@ -29,6 +29,8 @@ class Player < ApplicationRecord
     self.score = self.one + self.two + self.three + self.four + self.five + self.six + self.triple + self.quadriple + self.full + self.small + self.long + self.chance + self.yams
   end
 
+  
+
 
   # CALCULER 1,2,3,4,5 X
   # def calculate_scores
