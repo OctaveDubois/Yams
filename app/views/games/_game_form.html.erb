@@ -8,8 +8,10 @@
 <%# ---------------------- 1 et brelan -------------------------------- %>
 <div class="row">
   <div class="col-md-2">
-  <h3 class="card">1</h3>
-<%= player_form.input :one, collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.one, label: false, wrapper_html: { class: "card" }, input_html: { class: "card" } %>
+    <div class="d-flex align-items-center"> <!-- Utilisez la classe 'd-flex' pour afficher les éléments en ligne et 'align-items-center' pour les centrer verticalement -->
+      <h3 class="card m-3">1</h3>
+      <%= player_form.input :one, collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.one, label: false, wrapper_html: { class: "card mt-3" }, input_html: { class: "card" } %>
+    </div>
   </div>
   <div class="col-md-2">
     <%= player_form.input :triple, label: "Score pour brelan", selected: player_form.object.triple %>
@@ -17,10 +19,12 @@
 </div>
 <%# ---------------------- 2 et carré -------------------------------- %>
 <div class="row">
-<div class="col-md-2">
-<h3 class="card">2</h3>
-<%= player_form.input :two, label: "Score pour 2 : #{player_form.object.two }", collection: ["-", 0, 2, 4, 6, 8, 10], selected: player_form.object.two %>
-</div>
+  <div class="col-md-2">
+    <div class="d-flex align-items-center"> <!-- Utilisez la classe 'd-flex' pour afficher les éléments en ligne et 'align-items-center' pour les centrer verticalement -->
+      <h3 class="card m-3">2</h3>
+      <%= player_form.input :two, collection: ["-", 0, 2, 4, 6, 8, 10], selected: player_form.object.two, label: false, wrapper_html: { class: "card mt-3" }, input_html: { class: "card" } %>
+    </div>
+  </div>
 <div class="col-md-2">
 <%= player_form.input :quadriple, label: "Score pour carré", selected: player_form.object.quadriple %>
 </div>
