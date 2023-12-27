@@ -10,70 +10,89 @@
   <div class="col-md-2">
     <div class="d-flex align-items-center"> <!-- Utilisez la classe 'd-flex' pour afficher les éléments en ligne et 'align-items-center' pour les centrer verticalement -->
       <h3 class="card m-3">1</h3>
-      <%= player_form.input :one, collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.one, label: false, wrapper_html: { class: "card mt-3" }, input_html: { class: "card" } %>
+<%= player_form.input :one, as: :select, collection: ["-", 0, 1, 2, 3, 4, 5], selected: player_form.object.one, label: false, wrapper_html: { class: "mt-3" }, input_html: { class: "form-control card-input" } %>
+      <h3 class="card-text m-3">Brelan</h3>
+<%= player_form.input :triple, selected: player_form.object.triple, label: false, wrapper_html: { class: "mt-3" }, input_html: { class: "form-control card-input" } %>
     </div>
-  </div>
-  <div class="col-md-2">
-    <%= player_form.input :triple, label: "Score pour brelan", selected: player_form.object.triple %>
-  </div>
 </div>
-<%# ---------------------- 2 et carré -------------------------------- %>
+
+
+<%# Pour le score de 2 et carré (quadriple) %>
 <div class="row">
   <div class="col-md-2">
-    <div class="d-flex align-items-center"> <!-- Utilisez la classe 'd-flex' pour afficher les éléments en ligne et 'align-items-center' pour les centrer verticalement -->
+    <div class="d-flex align-items-center">
       <h3 class="card m-3">2</h3>
-      <%= player_form.input :two, collection: ["-", 0, 2, 4, 6, 8, 10], selected: player_form.object.two, label: false, wrapper_html: { class: "card mt-3" }, input_html: { class: "card" } %>
+      <%= player_form.input :two, as: :select, collection: ["-", 0, 2, 4, 6, 8, 10], selected: player_form.object.two, label: false, wrapper_html: { class: "mt-3" }, input_html: { class: "form-control card-input" } %>
     </div>
   </div>
-<div class="col-md-2">
-<%= player_form.input :quadriple, label: "Score pour carré", selected: player_form.object.quadriple %>
-</div>
+  <div class="col-md-2">
+    <%= player_form.input :quadriple, label: false, as: :select, collection: [25, 30, 40], selected: player_form.object.quadriple, wrapper_html: { class: "mt-3" }, input_html: { class: "form-control" } %>
+  </div>
 </div>
 <%# ---------------------- 3 et full -------------------------------- %>
 
+<%# Pour le score de 3 et brelan (triple) %>
 <div class="row">
-<div class="col-md-2">
-<h3 class="card"></h3>
-  <%= player_form.input :three, label: "Score pour 3 : #{player_form.object.three }", collection: ["-", 0, 3, 6, 9, 12, 15], selected: player_form.object.three %>
-</div>
-<div class="col-md-2">
-      <%= player_form.input :full, label: "Score pour full", collection: ["-", 0, 25], selected: player_form.object.full %>
-</div>
+  <div class="col-md-2">
+    <div class="d-flex align-items-center">
+      <h3 class="card m-3">3</h3>
+      <%= player_form.input :three, collection: ["-", 0, 3, 6, 9, 12, 15], selected: player_form.object.three, label: false, wrapper_html: { class: "mt-3 " }, input_html: { class: "form-control card-input" } %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <%= player_form.input :triple, label: false, collection: ["-", 0, 25, 30], selected: player_form.object.triple, wrapper_html: { class: "mt-3 " }, input_html: { class: "form-control card-input" } %>
+  </div>
 </div>
 
-<%# ---------------------- 4 et petite -------------------------------- %>
+<%# Pour le score de 4 et carré (quadriple) %>
 <div class="row">
-<div class="col-md-2">
-  <%= player_form.input :four, label: "Score pour 4 : #{player_form.object.four }", collection: ["-", 0, 4, 8, 12, 16, 20], selected: player_form.object.four %>
-</div>
-<div class="col-md-2">
-      <%= player_form.input :small, label: "Score pour petite suite", collection: ["-", 0, 30], selected: player_form.object.small %>
-</div>
+  <div class="col-md-2">
+    <div class="d-flex align-items-center">
+      <h3 class="card m-3">4</h3>
+      <%= player_form.input :four, collection: ["-", 0, 4, 8, 12, 16, 20], selected: player_form.object.four, label: false, wrapper_html: { class: "mt-3 " }, input_html: { class: "form-control card-input" } %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <%= player_form.input :quadriple, label: false, collection: ["-", 0, 25, 30, 40], selected: player_form.object.quadriple, wrapper_html: { class: "mt-3 " }, input_html: { class: "form-control card-input" } %>
+  </div>
 </div>
 
-<%# ---------------------- 5 et grande -------------------------------- %>
-
+<%# Pour le score de 5 et petite suite (small) %>
 <div class="row">
-<div class="col-md-2">
-      <%= player_form.input :five, label: "Score pour 5 : #{player_form.object.five }", collection: ["-", 0, 5, 10, 15, 20, 25], selected: player_form.object.five %>
+  <div class="col-md-2">
+    <div class="d-flex align-items-center">
+      <h3 class="card m-3">5</h3>
+      <%= player_form.input :five, collection: ["-", 0, 5, 10, 15, 20, 25], selected: player_form.object.five, label: false, wrapper_html: { class: "mt-3 " }, input_html: { class: "form-control card-input" } %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <%= player_form.input :small, label: false, collection: ["-", 0, 30], selected: player_form.object.small, wrapper_html: { class: "mt-3 " }, input_html: { class: "form-control card-input" } %>
+  </div>
 </div>
-<div class="col-md-2">
-      <%= player_form.input :long, label: "Score pour grande suite", collection: ["-", 0, 40], selected: player_form.object.long %>
 
-</div>
-</div>
-
-
-<%# ---------------------- 6 et chance -------------------------------- %>
-
+<%# Pour le score de 6 et grande suite (long) %>
 <div class="row">
-<div class="col-md-2">
-      <%= player_form.input :six, label: "Score pour 6 : #{player_form.object.six }", collection: ["-", 0, 6, 12, 18, 24, 30], selected: player_form.object.six %>
+  <div class="col-md-2">
+    <div class="d-flex align-items-center">
+      <h3 class="card m-3">6</h3>
+      <%= player_form.input :six, collection: ["-", 0, 6, 12, 18, 24, 30], selected: player_form.object.six, label: false, wrapper_html: { class: "mt-3 " }, input_html: { class: "card-input" } %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <%= player_form.input :long, label: false, collection: ["-", 0, 40], selected: player_form.object.long, wrapper_html: { class: "mt-3 " }, input_html: { class: "card-input" } %>
+  </div>
 </div>
-<div class="col-md-2">
-      <%= player_form.input :chance, label: "Score pour chance", selected: player_form.object.chance %>
+
+<%# Pour le score de chance %>
+<div class="row">
+  <div class="col-md-2">
+    <div class="d-flex align-items-center">
+      <h3 class="card-text m-3">Chance</h3>
+      <%= player_form.input :chance, label: false, selected: player_form.object.chance, wrapper_html: { class: "mt-3" }, input_html: { class: "card" } %>
+    </div>
+  </div>
 </div>
-</div>
+
 
 <%# ---------------------- Bonus et yams -------------------------------- %>
 

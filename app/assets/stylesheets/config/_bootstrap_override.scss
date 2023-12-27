@@ -71,7 +71,7 @@ font-style: normal;
 font-weight: 400;
 line-height: 18.4px;
   }
-  
+
 .card {
   display: flex;
 width: 73px;
@@ -82,6 +82,71 @@ align-items: center;
 gap: 3.103px;
 flex-shrink: 0;
 }
+
+.card {
+  display: flex;
+width: 73px;
+height: 46px;
+padding: 17.068px 27.929px;
+justify-content: center;
+align-items: center;
+gap: 3.103px;
+flex-shrink: 0;
+background: #f0f0f0;
+border-radius: 10px;
+overflow: hidden;
+border: none;
+}
+
+.card-text {
+  display: flex;
+  width: 73px; // Taille fixe
+  height: 46px; // Taille fixe
+  padding: 17.068px 27.929px;
+  justify-content: center;
+  align-items: center;
+  gap: 3.103px;
+  flex-shrink: 0;
+  background: #f0f0f0; // La couleur de fond pour correspondre à l'image
+  border-radius: 10px; // Les coins arrondis comme sur l'image
+  font-size: 14px; // Ajustez la taille de la police au besoin
+  text-transform: uppercase; // Met le texte en majuscules
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; // Ajoute des points de suspension si le texte est trop long
+  text-align: center;
+}
+
+.card-input {
+  width: 73px;
+  height: 46px;
+  padding: 5px; // Réduisez le padding pour laisser plus d'espace pour le texte
+  font-size: 14px; // Ajustez la taille de la police si nécessaire
+  text-align: center;
+  border: 1px solid #ccc; // Bordure grise pour qu'elle soit visible
+  border-radius: 10px;
+  background-color: #fff; // Fond blanc pour que le texte soit lisible
+  -webkit-appearance: none; // Enlève le style par défaut des selects sur iOS
+  -moz-appearance: none; // Enlève le style par défaut des selects sur Firefox
+  appearance: none; 
+
+  &:focus {
+    outline: none; // Optionnel : Supprime le contour de focus par défaut
+    border-color: blue; // Optionnel : Change la couleur de la bordure au focus
+  }
+}
+
+// Appliquez cette classe au conteneur des inputs si vous voulez utiliser flexbox
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.103px; // Espacement entre les éléments
+  // ... autres styles pour le conteneur
+}
+
+
+
   p {
     font-family: $Outfit-font;
     font-size: 16px;
