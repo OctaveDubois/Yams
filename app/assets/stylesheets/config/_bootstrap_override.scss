@@ -128,7 +128,7 @@ border: none;
   background-color: #fff; // Fond blanc pour que le texte soit lisible
   -webkit-appearance: none; // Enlève le style par défaut des selects sur iOS
   -moz-appearance: none; // Enlève le style par défaut des selects sur Firefox
-  appearance: none; 
+  appearance: none;
 
   &:focus {
     outline: none; // Optionnel : Supprime le contour de focus par défaut
@@ -184,5 +184,35 @@ border: none;
       background: $color-grey;
     }
   }
+
+  .form-select.is-valid,
+.was-validated .form-select:valid {
+    --bs-form-select-bg-icon: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e) !important;
+}
+
+.was-validated .form-control:valid, .form-control.is-valid {
+  border-color: #ced4da !important; /* Couleur de bordure initiale, changez-la selon vos besoins */
+  padding-right: 1.5em !important; /* Padding à droite initial, changez-le selon vos besoins */
+  background-image: none !important; /* Supprime l'image de fond */
+  background-repeat: no-repeat !important;
+  background-position: right calc(0.375em + 0.1875rem) center !important;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem) !important;
+}
+
+select.is-valid:not([multiple]):not([size]),
+.form-select.is-valid[size="1"]:not([multiple]) {
+    --bs-form-select-bg-icon: none !important; /* Supprime l'icône de fond */
+    padding-right: 0.75rem !important; /* Réinitialise le padding à droite */
+    background-position: initial !important; /* Réinitialise la position de l'arrière-plan */
+    background-size: initial !important; /* Réinitialise la taille de l'arrière-plan */
+}
+
+.form-select {
+  --bs-form-select-bg-img: none; /* Supprime l'icône de flèche par défaut */
+  --bs-form-select-bg-icon: none; /* Supprime l'icône de validation verte */
+  padding-right: 0.75rem; /* Réinitialise le padding à droite (ajustez selon la conception de votre formulaire) */
+  background-image: none; /* Supprime toutes les images de fond */
+  /* Les autres propriétés restent inchangées */
+}
 
 }
