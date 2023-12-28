@@ -87,8 +87,10 @@
 <%# ---------------------- Bonus et yams -------------------------------- %>
 
 <div class="row">
-<div class="col-md-2">
-<p>Bonus</p>
+  <div class="col-md-2">
+    <p>Bonus</p>
+    <p><%= player_form.object.bonus %></p>
+  </div>
 </div>
 <div class="col-md-2">
       <%= player_form.input :yams, label: "Score pour yams", selected: player_form.object.yams %>

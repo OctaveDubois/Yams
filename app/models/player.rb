@@ -4,7 +4,10 @@ class Player < ApplicationRecord
   before_update :score_total
   # before_save :calculate_scores
 
-
+  def bonus
+    total = self.one + self.two + self.three + self.four + self.five + self.six
+    total >= 63 ? 35 : 0
+  end
 
   private
 
@@ -26,10 +29,12 @@ class Player < ApplicationRecord
   end
 
   def score_total
-    self.score = self.one + self.two + self.three + self.four + self.five + self.six + self.triple + self.quadriple + self.full + self.small + self.long + self.chance + self.yams
+    self.score = self.one + self.two + self.three + self.four + self.five + self.six + self.triple + self.quadriple + self.full + self.small + self.long + self.chance + self.yams + self.bonus
   end
 
-  
+
+
+
 
 
   # CALCULER 1,2,3,4,5 X
