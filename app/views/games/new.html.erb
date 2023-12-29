@@ -1,24 +1,23 @@
 <div class="container">
+  <%= simple_form_for @game, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
+    <h2 class="mb-3 mt-3">Nouvelle partie</h2>
 
-<%= simple_form_for @game, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
-  <h2 class="mb-3 mt-3">Nouvelle partie</h1>
+    <div data-nested-form-target="template" style="display: none;">
+      <%= f.simple_fields_for :players, Player.new, child_index: 'NEW_RECORD' do |player_form| %>
+        <%= render "player_fields", f: player_form %>
+      <% end %>
+    </div>
 
-  <div data-nested-form-target="template">
-    <%= f.simple_fields_for :players, Player.new, child_index: 'NEW_RECORD' do |player_form| %>
+    <%= f.simple_fields_for :players do |player_form| %>
       <%= render "player_fields", f: player_form %>
     <% end %>
-  </div>
 
-  <%= f.simple_fields_for :players do |player_form| %>
-    <%= render "player_fields", f: player_form %>
+    <div data-nested-form-target="target"></div>
+
+    <button type="button" data-action="nested-form#add" class="btn-seco forminput mt-3 aicenter">
+      <i class="ri-add-box-fill mx-2"></i>Ajouter des joueurs
+    </button>
+
+    <%= f.submit 'Commencer la partie', class: "btn btn-primary mt-5 " %>
   <% end %>
-
-  <!-- Les éléments insérés seront injectés avant cette cible. -->
-  <div data-nested-form-target="target"></div>
-
-  <button type="button" data-action="nested-form#add", class="btn-seco forminput mt-3 aicenter"><i class="ri-add-box-fill mx-2"></i>Ajouter des joueurs</button>
-
-  <%= f.submit 'Commencer la partie', class: "btn btn-primary mt-5 " %>
-<% end %>
-
 </div>
