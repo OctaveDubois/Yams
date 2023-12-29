@@ -214,4 +214,20 @@ select.is-valid:not([multiple]):not([size]),
   /* Les autres propriétés restent inchangées */
 }
 
+.nav-link {
+  &.custom-tab {
+    background-color: white; // Fond blanc pour les onglets inactifs
+    color: black; // Texte noir pour les onglets inactifs
+    &:hover {
+      background-color: #333; // Fond plus foncé au survol
+      color: white; // Texte blanc au survol
+    }
+  }
+
+  &.active.custom-tab {
+    background-color: black; // Fond noir pour l'onglet actif
+    color: white; // Texte blanc pour l'onglet actif
+  }
+}
+
 }
