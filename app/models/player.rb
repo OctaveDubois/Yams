@@ -9,6 +9,10 @@ class Player < ApplicationRecord
     total >= 63 ? 35 : 0
   end
 
+  def scorebonus
+    scorebonus = 63 - (self.one + self.two + self.three + self.four + self.five + self.six)
+  end
+
   private
 
   def init_scores

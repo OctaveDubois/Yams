@@ -74,11 +74,21 @@
   </div>
 
 
-<%# Pour le score de chance %>
+<%# ---------------------- Bonus et Yams -------------------------------- %>
 <div class="row">
   <div class="col-md-2">
     <div class="d-flex align-items-center">
-      <h3 class="card-text m-3">Bonus</h3>
+          <% if player_form.object.scorebonus > 0 %>
+      <h3 class="card-text card-text-nobonus m-3">Bonus</h3>
+<% else %>
+      <h3 class="card-text card-text-bonus m-3">Bonus</h3>
+<% end %>
+
+      <% if player_form.object.scorebonus > 0 %>
+      <h3 class="card-text">- <%= player_form.object.scorebonus %></h3>
+      <% else %>
+      <h3 class="card-text">+ <%= player_form.object.bonus %></h3>
+      <% end %>
     </div>
   </div>
 </div>
