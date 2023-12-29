@@ -70,18 +70,9 @@ font-size: 28px;
 font-style: normal;
 font-weight: 400;
 line-height: 18.4px;
-  }
-
-.card {
-  display: flex;
-width: 73px;
-height: 46px;
-padding: 17.068px 27.929px;
 justify-content: center;
 align-items: center;
-gap: 3.103px;
-flex-shrink: 0;
-}
+  }
 
 .card {
   display: flex;
@@ -115,6 +106,14 @@ border: none;
   overflow: hidden;
   text-overflow: ellipsis; // Ajoute des points de suspension si le texte est trop long
   text-align: center;
+
+  &-bonus {
+    background: #b0e4be;
+  }
+
+  &-nobonus {
+    background: #ffc3c3;
+  }
 }
 
 .card-input {
