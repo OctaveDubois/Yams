@@ -214,20 +214,55 @@ select.is-valid:not([multiple]):not([size]),
   /* Les autres propriétés restent inchangées */
 }
 
-.nav-link {
-  &.custom-tab {
-    background-color: white; // Fond blanc pour les onglets inactifs
-    color: black; // Texte noir pour les onglets inactifs
-    &:hover {
-      background-color: #333; // Fond plus foncé au survol
-      color: white; // Texte blanc au survol
+.nav-tabs {
+  border-bottom: none;
+  display: flex;
+  flex-wrap: nowrap; // Empêche les onglets de passer à la ligne suivante
+ // Enlever la bordure par défaut des onglets de Bootstrap si nécessaire
+  .nav-item {
+    flex-grow: 1; // Fait en sorte que chaque onglet croisse équitablement
+    flex-basis: 0; // Initialise la base à 0 pour que la croissance soit équitable
+    text-align: center; // Centre le texte dans l'onglet
+    // Utiliser flex pour centrer le titre et le score
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    // Style par défaut pour les onglets inactifs
+    .nav-link {
+      white-space: nowrap; // Empêche le texte de l'onglet de passer à la ligne
+      overflow: hidden; // Cache le débordement de texte
+      text-overflow: ellipsis; // Ajoute des ellipses si le texte est trop long
+      background-color: #f0f0f0; // Gris clair
+      color: darkgray; // Gris foncé
+      border: none; // Enlever la bordure
+      border-radius: $radius; // Utiliser votre variable pour le radius
+      margin-right: 2px; // Petite marge entre les onglets
+
+      &:hover {
+        background-color: darken(#f0f0f0, 5%); // Assombrir un peu au survol
+        color: darken(darkgray, 5%); // Texte un peu plus foncé au survol
+      }
+    }
+
+    // Style pour l'onglet actif
+    .nav-link.active {
+      background-color: black; // Noir pour l'onglet actif
+      color: white; // Texte blanc pour l'onglet actif
+    }
+
+    // Style pour le score
+    .score {
+      font-size: 1.5rem; // Taille du score
+      color: black; // Couleur du score pour l'onglet actif
+      margin-top: 0.5rem; // Espacement entre le nom et le score
+    }
+
+    // Style spécifique pour le score de l'onglet inactif
+    .score-inactive {
+      color: darkgray; // Gris foncé pour le score inactif
     }
   }
-
-  &.active.custom-tab {
-    background-color: black; // Fond noir pour l'onglet actif
-    color: white; // Texte blanc pour l'onglet actif
-  }
 }
-
 }

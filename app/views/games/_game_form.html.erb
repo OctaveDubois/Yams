@@ -1,15 +1,17 @@
 <div class="container">
   <!-- Onglets des joueurs -->
-  <ul class="nav nav-tabs" id="playerTabs" role="tablist">
-    <% @game.players.each_with_index do |player, index| %>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link <%= 'active custom-tab' if index.zero? %>" id="player<%= player.id %>-tab" data-bs-toggle="tab" data-bs-target="#player<%= player.id %>" type="button" role="tab" aria-controls="player<%= player.id %>" aria-selected="<%= 'true' if index.zero? %>">
-          <%= player.name %>
-        </button>
+<ul class="nav nav-tabs" id="playerTabs" role="tablist">
+  <% @game.players.each_with_index do |player, index| %>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link <%= 'active' if index.zero? %>" id="player<%= player.id %>-tab" data-bs-toggle="tab" data-bs-target="#player<%= player.id %>" type="button" role="tab" aria-controls="player<%= player.id %>" aria-selected="<%= 'true' if index.zero? %>">
+        <%= player.name %>
+      </button>
+      <div class="score <%= 'score-inactive' unless index.zero? %>">
         <%= player.score %>
-      </li>
-    <% end %>
-  </ul>
+      </div>
+    </li>
+  <% end %>
+</ul>
 
  <%= simple_form_for @game do |form| %>
     <div class="tab-content" id="playerTabsContent">
