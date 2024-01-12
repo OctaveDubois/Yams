@@ -204,6 +204,8 @@ select.is-valid:not([multiple]):not([size]),
     padding-right: 0.75rem !important; /* Réinitialise le padding à droite */
     background-position: initial !important; /* Réinitialise la position de l'arrière-plan */
     background-size: initial !important; /* Réinitialise la taille de l'arrière-plan */
+    font-size: x-large;
+    color: rgb(106, 106, 106);
 }
 
 .form-select {
