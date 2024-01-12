@@ -5,35 +5,58 @@ class Player < ApplicationRecord
   # before_save :calculate_scores
 
   def bonus
-    total = self.one + self.two + self.three + self.four + self.five + self.six
+    total = (self.one || 0) +
+    (self.two || 0) +
+    (self.three || 0) +
+    (self.four || 0) +
+    (self.five || 0) +
+    (self.six || 0)
     total >= 63 ? 35 : 0
   end
 
   def scorebonus
-    scorebonus = 63 - (self.one + self.two + self.three + self.four + self.five + self.six)
+    scorebonus = 63 - ((self.one || 0) +
+    (self.two || 0) +
+    (self.three || 0) +
+    (self.four || 0) +
+    (self.five || 0) +
+    (self.six || 0))
   end
 
   private
 
   def init_scores
-    self.one ||= 0
-    self.two ||= 0
-    self.three ||= 0
-    self.four ||= 0
-    self.five ||= 0
-    self.six ||= 0
-    self.triple ||= 0
-    self.quadriple ||= 0
-    self.full ||= 0
-    self.small ||= 0
-    self.long ||= 0
-    self.chance ||= 0
-    self.yams ||= 0
-    self.score ||= 0
+    self.one ||= nil
+    self.two ||= nil
+    self.three ||= nil
+    self.four ||= nil
+    self.five ||= nil
+    self.six ||= nil
+    self.triple ||= nil
+    self.quadriple ||= nil
+    self.full ||= nil
+    self.small ||= nil
+    self.long ||= nil
+    self.chance ||= nil
+    self.yams ||= nil
+    self.score ||= nil
   end
 
   def score_total
-    self.score = self.one + self.two + self.three + self.four + self.five + self.six + self.triple + self.quadriple + self.full + self.small + self.long + self.chance + self.yams + self.bonus
+    self.score = (self.one || 0) +
+                 (self.two || 0) +
+                 (self.three || 0) +
+                 (self.four || 0) +
+                 (self.five || 0) +
+                 (self.six || 0) +
+                 (self.triple || 0) +
+                 (self.quadriple || 0) +
+                 (self.full || 0) +
+                 (self.small || 0) +
+                 (self.long || 0) +
+                 (self.chance || 0) +
+                 (self.yams || 0) +
+                 bonus
   end
 
 
