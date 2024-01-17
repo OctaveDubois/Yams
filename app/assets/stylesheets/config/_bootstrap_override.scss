@@ -6,6 +6,23 @@ i {
 
 #boostrap-override {
 
+  .new-game-button {
+    position: fixed;  // Fixe le bouton par rapport à la fenêtre du navigateur
+    top: 10px;       // Espacement depuis le haut
+    right: 10px;     // Espacement depuis la droite
+    width: 50px;     // Largeur du bouton
+    height: 50px;    // Hauteur du bouton
+    border-radius: 50%; // Rend le bouton circulaire
+    background-color: $color-primary; // Couleur de fond (bleu par exemple)
+    color: white;    // Couleur du texte
+    text-align: center; // Centre le texte à l'intérieur
+    line-height: 50px; // Centre verticalement le texte dans le bouton
+    font-size: 24px; // Taille du texte
+    border: none;    // Supprime la bordure
+    cursor: pointer; // Change le curseur au survol
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // Ombre portée optionnelle pour un effet en relief
+  }
+
   .avatar {
     border-radius: 45px;
     border: 2px solid $color-secondary;
