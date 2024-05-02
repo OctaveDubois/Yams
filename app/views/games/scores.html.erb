@@ -1,0 +1,39 @@
+<!-- app/views/games/scores.html.erb -->
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Récapitulatif de la partie</h1>
+
+  <ul class="list-group">
+    <% @game.players.each do |player| %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= player.name %>
+        <span class="badge bg-primary rounded-pill"><%= player.score %></span>
+      </li>
+    <% end %>
+  </ul>
+
+  <!-- Bouton pour nouvelle partie -->
+  <div class="text-center mt-4">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Commencer une nouvelle partie
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nouvelle partie</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Êtes-vous sûr de vouloir démarrer une nouvelle partie ?
+        </div>
+        <div class="modal-footer">
+          <%= link_to 'Nouvelle partie', new_game_path, class: "btn btn-primary", data: { controller: "confirm" } %>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
