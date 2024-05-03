@@ -4,6 +4,47 @@ i {
   font-size: 20px;
 }
 
+.results-container {
+  width: 300px;
+  margin: 10px auto;
+  padding: 15px;
+  background-color: #F1F1F2;
+  border-radius: 15px;
+  color: white;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.score-display {
+  background-color: #222;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1.5em;
+  margin: auto;
+  display: inline-block;
+}
+
+.custom-bg-color {
+  background-color: #0D1321;
+}
+
+.score {
+  background-color: #444;
+  padding: 5px 15px;
+  margin-left: 10px;
+  border-radius: 8px;
+  font-size: 1.2em;
+}
+
+.btn-success {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  width: 100%;
+  border-radius: 8px;
+}
+
 #boostrap-override {
 
   .new-game-button {
@@ -85,6 +126,8 @@ i {
     line-height: 1.2;
 background-color: red;
   }
+
+
 
   .score {
 font-family: Outfit;

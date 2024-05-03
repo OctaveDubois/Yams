@@ -1,22 +1,26 @@
 <!-- app/views/games/scores.html.erb -->
-<div class="container mt-4">
-  <h1 class="text-center mb-4">Récapitulatif de la partie</h1>
+<div class="container custom-bg-color">
+  <h1 class="text-center text-white">Résultats</h1>
 
-  <ul class="list-group">
-    <% @game.players.each do |player| %>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <%= player.name %>
-        <span class="badge bg-primary rounded-pill"><%= player.score %></span>
-      </li>
-    <% end %>
-  </ul>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="list-group mt-4">
+        <% @game.players.sort_by { |player| -player.score }.each do |player| %>
+          <div class="results-container d-flex justify-content-between">
+            <span class="player-name text-dark align-self-center"><%= player.name %></span>
+            <span class="badge bg-secondary rounded-pill align-self-center fs-6"><%= player.score %></span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-  <!-- Bouton pour nouvelle partie -->
-  <div class="text-center mt-4">
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Commencer une nouvelle partie
+  <div class="d-grid gap-2 col-6 mx-auto mt-4">
+    <button type="button" class="btn btn-primary text" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Nouvelle partie
     </button>
   </div>
+</div>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -31,7 +35,7 @@
         </div>
         <div class="modal-footer">
           <%= link_to 'Nouvelle partie', new_game_path, class: "btn btn-primary", data: { controller: "confirm" } %>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Annuler</button>
         </div>
       </div>
     </div>
