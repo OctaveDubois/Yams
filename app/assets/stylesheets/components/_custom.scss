@@ -256,3 +256,16 @@ hr {
 .font-input {
   font-size: 1.25rem; /* Remplacez par la taille de police souhaitée */
 }
+
+.nav-item {
+  width: 50%;
+  border-radius: $radius;
+}
+
+.nav-item .nav-link.active + .score {
+  color: $color-white !important;  // Applique la couleur blanche au score du joueur actif
+}
+
+.nav-item .score {
+  color: black;  // Couleur par défaut pour les scores inactifs
+}
