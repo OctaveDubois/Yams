@@ -180,7 +180,6 @@ ul {
   width: 100%;
   background-color: $color-grey;
   border-radius: $radius;
-  color: $color-secondary;
   font-family: $Outfit-font;
 
   &:hover {
@@ -191,6 +190,10 @@ ul {
     background-color: $color-secondary;
   }
 
+}
+
+.nav-item .nav-link.active + .score {
+  color: $color-white !important;
 }
 
 .nav-item {

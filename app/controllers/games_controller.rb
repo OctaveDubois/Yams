@@ -30,7 +30,7 @@ class GamesController < ApplicationController
         return  # Ajoutez return pour s'assurer qu'aucun autre rendu ou redirection ne se produira après ceci
       else
         # Si les champs ne sont pas tous remplis, rediriger vers la même page d'édition avec un message
-        redirect_to edit_game_path(@game), notice: 'La partie a été mise à jour avec succès.'
+        redirect_to edit_game_path(@game)
         return
       end
     else
