@@ -1,3 +1,161 @@
 @import "config/_bootstrap_override";
 
 
+// Variables
+$radius: 8px;
+$font-size-large: 1.5em;
+$padding-standard: 10px 20px;
+$padding-small: 5px 15px;
+$background-dark: #222;
+$background-light: #F1F1F2;
+$background-active: black;
+$text-color-active: white;
+$icon-size: 20px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin standard-border-radius {
+  border-radius: $radius;
+}
+
+@mixin nav-item-style {
+  flex-grow: 1;
+  flex-basis: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Base element styles
+* {
+  box-sizing: border-box;
+}
+
+i {
+  font-size: $icon-size;
+}
+
+ul {
+  list-style-type: none;
+}
+
+// Specific component styles
+.results-container {
+  width: 300px;
+  margin: 10px auto;
+  padding: 15px;
+  background-color: $background-light;
+  color: white;
+  @include standard-border-radius;
+  border-radius: 15px;
+}
+
+.score-display, .score {
+  @include flex-center;
+  background-color: $background-dark;
+  padding: $padding-standard;
+  margin: auto;
+  font-size: $font-size-large;
+}
+
+.score {
+  padding: $padding-small;
+  margin-left: 10px;
+  background-color: #444;
+}
+
+.btn-success {
+  width: 100%;
+  padding: $padding-standard;
+  font-size: 1.2em;
+  @include standard-border-radius;
+}
+
+// Override Bootstrap styles
+#bootstrap-override {
+  .new-game-button {
+    @include flex-center;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: $color-primary;
+    color: $text-color-active;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .avatar {
+    @include standard-border-radius;
+    border-radius: 45px;
+    border: 2px solid $color-secondary;
+    height: 54px;
+    width: 54px;
+    object-fit: cover;
+  }
+
+  .container {
+    @include flex-center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+  }
+}
+
+.nav-tabs {
+  border-bottom: none;
+  display: flex;
+  flex-wrap: nowrap;
+
+  .nav-item {
+    @include nav-item-style;
+
+    .nav-link {
+      background-color: #f0f0f0;
+      color: darkgray;
+      border: none;
+      @include standard-border-radius;
+      margin-right: 2px;
+
+      &:hover {
+        background-color: darken(#f0f0f0, 5%);
+        color: darken(darkgray, 5%);
+      }
+    }
+
+    .nav-link.active {
+      background-color: $background-active;
+      color: $text-color-active;
+    }
+  }
+}
+
+// Utility styles
+.flex {
+  display: flex;
+}
+
+.aicenter {
+  align-items: center;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+.gap, .gap2 {
+  gap: 8px; // Use variables if different gaps are needed
+}
