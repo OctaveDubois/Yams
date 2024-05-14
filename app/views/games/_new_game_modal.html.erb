@@ -1,0 +1,18 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Nouvelle partie</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Êtes-vous sûr de vouloir démarrer une nouvelle partie ?
+      </div>
+      <div class="modal-footer">
+        <%= link_to 'Nouvelle partie', new_game_path, class: "btn btn-primary", data: { controller: "confirm" } %>
+        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div>
