@@ -1,17 +1,15 @@
 <div class="container">
   <!-- Onglets des joueurs -->
-<% is_first = true %>
 <ul class="nav nav-tabs" id="playerTabs" role="tablist">
-  <% @game.players.each do |player| %>
+  <% @game.players.each_with_index do |player, index| %>
     <li class="nav-item" role="presentation">
-      <button class="nav-link <%= 'active' if is_first %>" id="player<%= player.id %>-tab" data-bs-toggle="tab" data-bs-target="#player<%= player.id %>" type="button" role="tab" aria-controls="player<%= player.id %>" aria-selected="<%= 'true' if is_first %>">
+      <button class="nav-link <%= 'active' if index.zero? %>" id="player<%= player.id %>-tab" data-bs-toggle="tab" data-bs-target="#player<%= player.id %>" type="button" role="tab" aria-controls="player<%= player.id %>" aria-selected="<%= 'true' if index.zero? %>">
         <%= player.name %>
       </button>
-      <div class="score <%= 'score-inactive' unless is_first %>">
+      <div class="score <%= 'score-inactive' unless index.zero? %>">
         <%= player.score %>
       </div>
     </li>
-    <% is_first = false %>
   <% end %>
 </ul>
 
@@ -127,5 +125,3 @@
     </div>
   <% end %>
 </div>
-
-
