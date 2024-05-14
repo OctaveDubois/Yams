@@ -1,70 +1,102 @@
+// Variables
 $radius: 8px;
+$font-size-large: 1.5em;
+$padding-standard: 10px 20px;
+$padding-small: 5px 15px;
+$background-dark: #222;
+$background-light: #F1F1F2;
+$background-active: black;
+$text-color-active: white;
+$icon-size: 20px;
 
-i {
-  font-size: 20px;
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+@mixin standard-border-radius {
+  border-radius: $radius;
+}
+
+@mixin nav-item-style {
+  flex-grow: 1;
+  flex-basis: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Base element styles
+* {
+  box-sizing: border-box;
+}
+
+i {
+  font-size: $icon-size;
+}
+
+ul {
+  list-style-type: none;
+}
+
+// Specific component styles
 .results-container {
   width: 300px;
   margin: 10px auto;
   padding: 15px;
-  background-color: #F1F1F2;
-  border-radius: 15px;
+  background-color: $background-light;
   color: white;
+  @include standard-border-radius;
+  border-radius: 15px;
 }
 
-h1 {
-  margin-bottom: 30px;
-}
-
-.score-display {
-  background-color: #222;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 1.5em;
+.score-display, .score {
+  @include flex-center;
+  background-color: $background-dark;
+  padding: $padding-standard;
   margin: auto;
-  display: inline-block;
-}
-
-.custom-bg-color {
-  background-color: #0D1321;
+  font-size: $font-size-large;
 }
 
 .score {
-  background-color: #444;
-  padding: 5px 15px;
+  padding: $padding-small;
   margin-left: 10px;
-  border-radius: 8px;
-  font-size: 1.2em;
+  background-color: #444;
 }
 
 .btn-success {
-  padding: 10px 20px;
-  font-size: 1.2em;
   width: 100%;
-  border-radius: 8px;
+  padding: $padding-standard;
+  font-size: 1.2em;
+  @include standard-border-radius;
 }
 
-#boostrap-override {
-
+// Override Bootstrap styles
+#bootstrap-override {
   .new-game-button {
-    position: fixed;  // Fixe le bouton par rapport à la fenêtre du navigateur
-    top: 10px;       // Espacement depuis le haut
-    right: 10px;     // Espacement depuis la droite
-    width: 50px;     // Largeur du bouton
-    height: 50px;    // Hauteur du bouton
-    border-radius: 50%; // Rend le bouton circulaire
-    background-color: $color-primary; // Couleur de fond (bleu par exemple)
-    color: white;    // Couleur du texte
-    text-align: center; // Centre le texte à l'intérieur
-    line-height: 50px; // Centre verticalement le texte dans le bouton
-    font-size: 24px; // Taille du texte
-    border: none;    // Supprime la bordure
-    cursor: pointer; // Change le curseur au survol
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // Ombre portée optionnelle pour un effet en relief
+    @include flex-center;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: $color-primary;
+    color: $text-color-active;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .avatar {
+    @include standard-border-radius;
     border-radius: 45px;
     border: 2px solid $color-secondary;
     height: 54px;
@@ -72,264 +104,55 @@ h1 {
     object-fit: cover;
   }
 
-  .padding-b {
-    padding-bottom: 16px ;
-  }
-
-  .forminput {
-    border-radius: $radius;
-    border: 1px solid $color-grey;
-    background: $color-white;
-    display: flex;
-    padding: 12px;
-    width: 100%;
-  }
-
   .container {
-    display: flex;
+    @include flex-center;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh; // Assure que le conteneur prend toute la hauteur de la fenêtre de visualisation
-    padding: 20px; // Ajoute un peu d'espace autour du contenu
+    min-height: 100vh;
+    padding: 20px;
   }
-
-  .wrapper {
-    padding: 16px;
-  }
-
-  h1 {
-    font-family: $Epilogue-font;
-    font-size: 24px;
-    font-weight: 700;
-    color: $color-secondary;
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 1.2;
-  }
-  h2 {
-    font-family: $Epilogue-font;
-    font-size: 20px;
-    font-weight: 700;
-    color: $color-secondary;
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 1.2;
-  }
-  .h3 {
-    font-family: $Epilogue-font;
-    font-size: 16px;
-    font-weight: 700;
-    color: $color-secondary;
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 1.2;
-background-color: red;
-  }
-
-
-
-  .score {
-font-family: Outfit;
-font-size: 28px;
-font-style: normal;
-font-weight: 400;
-line-height: 18.4px;
-justify-content: center;
-align-items: center;
-  }
-
-.card {
-  display: flex;
-width: 73px;
-height: 46px;
-padding: 17.068px 27.929px;
-justify-content: center;
-align-items: center;
-gap: 3.103px;
-flex-shrink: 0;
-background: #f0f0f0;
-border-radius: 10px;
-overflow: hidden;
-border: none;
-}
-
-.card-text {
-  display: flex;
-  width: 73px; // Taille fixe
-  height: 46px; // Taille fixe
-  padding: 17.068px 27.929px;
-  justify-content: center;
-  align-items: center;
-  gap: 3.103px;
-  flex-shrink: 0;
-  background: #f0f0f0; // La couleur de fond pour correspondre à l'image
-  border-radius: 10px; // Les coins arrondis comme sur l'image
-  font-size: 14px; // Ajustez la taille de la police au besoin
-  text-transform: uppercase; // Met le texte en majuscules
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; // Ajoute des points de suspension si le texte est trop long
-  text-align: center;
-
-  &-bonus {
-    background: #b0e4be;
-  }
-
-  &-nobonus {
-    background: #ffc3c3;
-  }
-}
-
-.card-input {
-  width: 73px;
-  height: 46px;
-  padding: 5px; // Réduisez le padding pour laisser plus d'espace pour le texte
-  font-size: 14px; // Ajustez la taille de la police si nécessaire
-  text-align: center;
-  border: 1px solid #ccc; // Bordure grise pour qu'elle soit visible
-  border-radius: 10px;
-  background-color: #fff; // Fond blanc pour que le texte soit lisible
-  -webkit-appearance: none; // Enlève le style par défaut des selects sur iOS
-  -moz-appearance: none; // Enlève le style par défaut des selects sur Firefox
-  appearance: none;
-
-  &:focus {
-    outline: none; // Optionnel : Supprime le contour de focus par défaut
-    border-color: blue; // Optionnel : Change la couleur de la bordure au focus
-  }
-}
-
-// Appliquez cette classe au conteneur des inputs si vous voulez utiliser flexbox
-.card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3.103px; // Espacement entre les éléments
-  // ... autres styles pour le conteneur
-}
-
-
-
-  p {
-    font-family: $Outfit-font;
-    font-size: 16px;
-    font-weight: 400;
-    color: $color-secondary;
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 1.2;
-  }
-  a {
-    color: $color-secondary;
-    text-decoration: none;
-  }
-
-  .btn {
-    border-radius: $radius;
-    padding: 12px 16px;
-    font-family: $Epilogue-font;
-    text-align: center;
-    color: $color-secondary;
-    display: inline-block;
-    width: 100%;
-
-    &-primary {
-
-      background: $color-primary;
-      border: none;
-    }
-
-    &-secondary {
-      border: 1px solid $color-secondary;
-    }
-
-    &-disabled {
-      background: $color-grey;
-    }
-  }
-
-  .form-select.is-valid,
-.was-validated .form-select:valid {
-    --bs-form-select-bg-icon: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e) !important;
-}
-
-.was-validated .form-control:valid, .form-control.is-valid {
-  border-color: #ced4da !important; /* Couleur de bordure initiale, changez-la selon vos besoins */
-  padding-right: 1.5em !important; /* Padding à droite initial, changez-le selon vos besoins */
-  background-image: none !important; /* Supprime l'image de fond */
-  background-repeat: no-repeat !important;
-  background-position: right calc(0.375em + 0.1875rem) center !important;
-  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem) !important;
-}
-
-select.is-valid:not([multiple]):not([size]),
-.form-select.is-valid[size="1"]:not([multiple]) {
-    --bs-form-select-bg-icon: none !important; /* Supprime l'icône de fond */
-    padding-right: 0.75rem !important; /* Réinitialise le padding à droite */
-    background-position: initial !important; /* Réinitialise la position de l'arrière-plan */
-    background-size: initial !important; /* Réinitialise la taille de l'arrière-plan */
-    font-size: x-large;
-    color: rgb(106, 106, 106);
-}
-
-.form-select {
-  --bs-form-select-bg-img: none; /* Supprime l'icône de flèche par défaut */
-  --bs-form-select-bg-icon: none; /* Supprime l'icône de validation verte */
-  padding-right: 0.75rem; /* Réinitialise le padding à droite (ajustez selon la conception de votre formulaire) */
-  background-image: none; /* Supprime toutes les images de fond */
-  /* Les autres propriétés restent inchangées */
 }
 
 .nav-tabs {
   border-bottom: none;
   display: flex;
-  flex-wrap: nowrap; // Empêche les onglets de passer à la ligne suivante
- // Enlever la bordure par défaut des onglets de Bootstrap si nécessaire
-  .nav-item {
-    flex-grow: 1; // Fait en sorte que chaque onglet croisse équitablement
-    flex-basis: 0; // Initialise la base à 0 pour que la croissance soit équitable
-    text-align: center; // Centre le texte dans l'onglet
-    // Utiliser flex pour centrer le titre et le score
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  flex-wrap: nowrap;
 
-    // Style par défaut pour les onglets inactifs
+  .nav-item {
+    @include nav-item-style;
+
     .nav-link {
-      white-space: nowrap; // Empêche le texte de l'onglet de passer à la ligne
-      overflow: hidden; // Cache le débordement de texte
-      text-overflow: ellipsis; // Ajoute des ellipses si le texte est trop long
-      background-color: #f0f0f0; // Gris clair
-      color: darkgray; // Gris foncé
-      border: none; // Enlever la bordure
-      border-radius: $radius; // Utiliser votre variable pour le radius
-      margin-right: 2px; // Petite marge entre les onglets
+      background-color: #f0f0f0;
+      color: darkgray;
+      border: none;
+      @include standard-border-radius;
+      margin-right: 2px;
 
       &:hover {
-        background-color: darken(#f0f0f0, 5%); // Assombrir un peu au survol
-        color: darken(darkgray, 5%); // Texte un peu plus foncé au survol
+        background-color: darken(#f0f0f0, 5%);
+        color: darken(darkgray, 5%);
       }
     }
 
-    // Style pour l'onglet actif
     .nav-link.active {
-      background-color: black; // Noir pour l'onglet actif
-      color: white; // Texte blanc pour l'onglet actif
-    }
-
-    // Style pour le score
-    .score {
-      font-size: 1.5rem; // Taille du score
-      color: black; // Couleur du score pour l'onglet actif
-      margin-top: 0.5rem; // Espacement entre le nom et le score
-    }
-
-    // Style spécifique pour le score de l'onglet inactif
-    .score-inactive {
-      color: darkgray; // Gris foncé pour le score inactif
+      background-color: $background-active;
+      color: $text-color-active;
     }
   }
 }
+
+// Utility styles
+.flex {
+  display: flex;
+}
+
+.aicenter {
+  align-items: center;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+.gap, .gap2 {
+  gap: 8px; // Use variables if different gaps are needed
 }

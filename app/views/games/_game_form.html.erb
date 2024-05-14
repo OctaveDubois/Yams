@@ -1,17 +1,20 @@
 <div class="container">
   <!-- Onglets des joueurs -->
+<% is_first = true %>
 <ul class="nav nav-tabs" id="playerTabs" role="tablist">
-  <% @game.players.each_with_index do |player, index| %>
+  <% @game.players.each do |player| %>
     <li class="nav-item" role="presentation">
-      <button class="nav-link <%= 'active' if index.zero? %>" id="player<%= player.id %>-tab" data-bs-toggle="tab" data-bs-target="#player<%= player.id %>" type="button" role="tab" aria-controls="player<%= player.id %>" aria-selected="<%= 'true' if index.zero? %>">
+      <button class="nav-link <%= 'active' if is_first %>" id="player<%= player.id %>-tab" data-bs-toggle="tab" data-bs-target="#player<%= player.id %>" type="button" role="tab" aria-controls="player<%= player.id %>" aria-selected="<%= 'true' if is_first %>">
         <%= player.name %>
       </button>
-      <div class="score <%= 'score-inactive' unless index.zero? %>">
+      <div class="score <%= 'score-inactive' unless is_first %>">
         <%= player.score %>
       </div>
     </li>
+    <% is_first = false %>
   <% end %>
 </ul>
+
 
  <%= simple_form_for @game do |form| %>
     <div class="tab-content" id="playerTabsContent">
@@ -94,7 +97,7 @@
 
           <% end %>
         </div>
-    <%= form.button :submit, "Suivant", class: "btn btn-primary" %>
+<%= form.button :submit, "Suivant", class: "btn btn-primary next-tab" %>
     <%= form.hidden_field :check_fields, value: true %>
   <!-- Button trigger modal -->
   <button type="button" class="new-game-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -124,3 +127,5 @@
     </div>
   <% end %>
 </div>
+
+
