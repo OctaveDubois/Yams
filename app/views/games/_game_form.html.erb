@@ -15,6 +15,7 @@
   <% end %>
 </ul>
 
+
 <%= simple_form_for @game do |form| %>
   <div class="tab-content" id="playerTabsContent">
     <% @game.players.each_with_index do |player, index| %>
@@ -97,7 +98,7 @@
 
           <% end %>
         </div>
-    <%= form.button :submit, "Suivant", class: "btn btn-primary" %>
+<%= form.button :submit, "Suivant", class: "btn btn-primary next-tab" %>
     <%= form.hidden_field :check_fields, value: true %>
   <!-- Button trigger modal -->
   <button type="button" class="new-game-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
