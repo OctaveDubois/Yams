@@ -24,19 +24,20 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
 
     if @game.update(game_params)
+      # Déterminer l'index de l'onglet suivant
+      current_index = params[:active_tab_index].to_i
+      next_index = (current_index + 1) % @game.players.count
+
       if params[:game][:check_fields] && all_fields_filled?(@game)
         # Si tous les champs sont remplis, rediriger vers la page des scores
         redirect_to scores_game_path(@game)
-        return  # Ajoutez return pour s'assurer qu'aucun autre rendu ou redirection ne se produira après ceci
       else
-        # Si les champs ne sont pas tous remplis, rediriger vers la même page d'édition avec un message
-        redirect_to edit_game_path(@game)
-        return
+        # Si les champs ne sont pas tous remplis, rediriger vers la même page avec l'onglet suivant actif
+        redirect_to edit_game_path(@game, active_tab_index: next_index)
       end
     else
-      # Si la mise à jour échoue, rendre la vue 'edit' avec les objets actuels
-      render 'edit'
-      return
+      # Si la mise à jour échoue, rendre la vue 'edit' avec l'onglet actuel actif
+      render 'edit', locals: { active_tab_index: current_index }
     end
   end
 
