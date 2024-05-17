@@ -30,7 +30,7 @@ class GamesController < ApplicationController
 
       if params[:game][:check_fields] && all_fields_filled?(@game)
         # Si tous les champs sont remplis, rediriger vers la page des scores
-        redirect_to scores_game_path(@game)
+        redirect_to scores_game_path(@game, active_tab_index: next_index)
       else
         # Si les champs ne sont pas tous remplis, rediriger vers la même page avec l'onglet suivant actif
         redirect_to edit_game_path(@game, active_tab_index: next_index)
