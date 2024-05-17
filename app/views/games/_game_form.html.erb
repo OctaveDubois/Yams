@@ -3,22 +3,25 @@
 <ul class="nav nav-tabs" id="playerTabs" role="tablist">
   <% @game.players.each_with_index do |player, index| %>
     <li class="nav-item" role="presentation">
-      <button class="nav-link <%= 'active' if index.zero? %>" id="player<%= player.id %>-tab" data-bs-toggle="tab" data-bs-target="#player<%= player.id %>" type="button" role="tab" aria-controls="player<%= player.id %>" aria-selected="<%= 'true' if index.zero? %>">
+      <!-- Appliquez 'active' seulement si c'est l'onglet sélectionné -->
+      <button class="nav-link <%= 'active' if params[:active_tab_index].to_i == index %>" id="player<%= player.id %>-tab" data-bs-toggle="tab" data-bs-target="#player<%= player.id %>" type="button" role="tab" aria-controls="player<%= player.id %>" aria-selected="<%= 'true' if params[:active_tab_index].to_i == index %>">
         <%= player.name %>
       </button>
-      <div class="score <%= 'score-inactive' unless index.zero? %>">
+      <!-- La classe 'score-active' est appliquée si c'est l'onglet actif, 'score-inactive' sinon -->
+      <div class="score <%= 'score-active' if params[:active_tab_index].to_i == index %> <%= 'score-inactive' unless params[:active_tab_index].to_i == index %>">
         <%= player.score %>
       </div>
     </li>
   <% end %>
 </ul>
 
- <%= simple_form_for @game do |form| %>
-    <div class="tab-content" id="playerTabsContent">
-      <% @game.players.each_with_index do |player, index| %>
-        <div class="tab-pane fade <%= 'show active' if index.zero? %>" id="player<%= player.id %>" role="tabpanel" aria-labelledby="player<%= player.id %>-tab">
-          <%= form.simple_fields_for :players, player do |player_form| %>
-            <div class="player-fields">
+<%= simple_form_for @game do |form| %>
+  <div class="tab-content" id="playerTabsContent">
+    <% @game.players.each_with_index do |player, index| %>
+      <div class="tab-pane fade <%= 'show active' if (params[:active_tab_index] || 0).to_i == index %>" id="player<%= player.id %>" role="tabpanel" aria-labelledby="player<%= player.id %>-tab">
+        <%= form.simple_fields_for :players, player do |player_form| %>
+          <%= hidden_field_tag :active_tab_index, index %>
+          <div class="player-fields">
 
 <%# ---------------------- 1 et brelan OKKKK -------------------------------- %>
 
